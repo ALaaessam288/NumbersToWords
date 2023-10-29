@@ -74,17 +74,16 @@ public class NumbersToWords
                 (hundredThousands == 1) ? "ألف " : convertLessThanOneThousand(hundredThousands) + " ألف  ";
         String thousandsWords = convertLessThanOneThousand(thousands);
 
-        double decimalPart = (number % 1) * 100; // قيمة القروش
+        double decimalPart = (0L) * 100;
 
         String decimalPartWords = "";
         if (decimalPart > 0) {
             int decimalValue = (int) decimalPart;
-            String currencyName = currencyNames[0]; // القرش
+            String currencyName = currencyNames[0];
             if (decimalValue > 1) {
-                currencyName = currencyNames[1]; // القروش
+                currencyName = currencyNames[1];
             }
             decimalPartWords = " و " + convertLessThanOneThousand(decimalValue) + " " + currencyName;
-            // للتعبير عن الأرقام العشرية بشكل صحيح
             String decimalString = String.valueOf(decimalPart);
             int decimalLength = decimalString.length();
             decimalString = decimalString.substring(2, decimalLength);
